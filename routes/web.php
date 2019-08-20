@@ -30,3 +30,7 @@ Route::put('/post/{id}', function ($id) {
 Route::get('/post/edit', function () {
     return view('postEdit', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
+
+Route::get('/post/delete/{id}', function($id) {
+    return view('/postDelete');
+}); 
