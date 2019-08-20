@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class PostController extends Controller
 {
@@ -35,7 +36,7 @@ class PostController extends Controller
             ->where('id', $id)
             ->update(['title' => $request->input('postTitle'), 
                       'content' => $request->input('postContent')]);
-            return $this->index();
+            return redirect('/post');
          }
      } else {
         return "Error";
@@ -56,7 +57,7 @@ class PostController extends Controller
                 ['title' => $request->input('postTitle'), 
                 'content' => $request->input('postContent')]
             ]);
-            return $this->index();
+            return redirect('/post');
         } else {
             return view('postEdit', ['title' => 'Title here please', 'content' => 'content here']); // TODO: CONFIGURE ROUTE!!
         }
