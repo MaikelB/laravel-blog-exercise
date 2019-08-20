@@ -64,21 +64,20 @@ class PostController extends Controller
      */
     public function newPost(Request $request)
     {
-
         if($request->input('postTitle'))
         {
             DB::table('posts')->insert([
                 ['title' => $request->input('postTitle'), 
                 'content' => $request->input('postContent')]
             ]);
-            return redirect('/post');
+            return redirect('/posts');
         } else {
             return view('postEdit', ['title' => 'Title here please', 'content' => 'content here']); 
         }
     }
 
      /**
-     * Create a post
+     * Delete a post
      *
      * @return Response
      */

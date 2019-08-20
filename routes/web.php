@@ -16,12 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', 'PostController@index');
-Route::get('/posts/{id}', 'PostController@singlePost');
+Route::get('/posts/single/{id}', 'PostController@singlePost');
+
+Route::get('/posts/new', 'PostController@newPost');
+Route::post('/posts/new', 'PostController@newPost');
 
 Route::get('/posts/edit/{id}', 'PostController@editPost');
 Route::post('/posts/edit/{id}', 'PostController@editPost');
-Route::get('/posts/edit', 'PostController@newPost');
-Route::post('/posts/edit', 'PostController@newPost');
 
 Route::get('/posts/delete/{id}', 'PostController@deletePost');
 Route::post('/posts/delete/{id}', 'PostController@deletePost');

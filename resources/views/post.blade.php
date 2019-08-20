@@ -13,17 +13,18 @@
 <body>
     @if(count($posts) == 0)
         <h1> No posts to show. Would you like to make one?</h1>
-        <a class="btn btn btn-danger btn-lg" href="/posts/edit" role="button">Create a post</a>
-    @endif
-    @if(count($posts) == 1)
+        <a class="btn btn btn-danger btn-lg" href="/posts/new" role="button">Create a post</a>
+    @elseif(count($posts) == 1)
+        <a class="btn btn btn-danger btn-lg" href="/posts/new" role="button">Create a post</a>
         <div class="jumbotron">
-        <h1 class="display-4">#{{ $post->id }} {{ $post->title }}</h1>
-        <p class="lead">{{ $post->content }}</p>
+        <h1 class="display-4">#{{ $posts[0]->id }} {{ $posts[0]->title }}</h1>
+        <p class="lead">{{ $posts[0]->content }}</p>
 
-        <a class="btn btn btn-danger btn-lg" href="/posts/edit/{{ $post->id }}" role="button">Edit post</a>
-        <a class="btn btn btn-warning btn-lg" href="/posts/delete/{{ $post->id }}" role="button">Delete post</a>
+        <a class="btn btn btn-danger btn-lg" href="/posts/edit/{{ $posts[0]->id }}" role="button">Edit post</a>
+        <a class="btn btn btn-warning btn-lg" href="/posts/delete/{{ $posts[0]->id }}" role="button">Delete post</a>
         </div>
     @else
+        <a class="btn btn btn-danger btn-lg" href="/posts/new" role="button">Create a post</a>
         @foreach($posts as $post)
             <div class="jumbotron">
             <h1 class="display-4">#{{ $post->id }} {{ $post->title }}</h1>
@@ -34,7 +35,6 @@
             </div>
         @endforeach 
     @endif
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
