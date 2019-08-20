@@ -8,19 +8,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Editing post: {{ $title }}</title>
 </head>
 <body>
-    <form>
+    <form method="post">
+    {{ csrf_field() }}
     <div class="form-group">
         <label for="formGroupExampleInput">Title</label>
-        <input type="text" class="form-control" id="postTitle" placeholder="{{ $title }}">
+        <input type="text" class="form-control" id="postTitle" name="postTitle" placeholder="{{ $title }}">
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Content</label>
-        <input type="text" class="form-control" id="postContent" placeholder="{{ $content }}">
+        <input type="text" class="form-control" id="postContent" name="postContent" placeholder="{{ $content }}">
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button> 
+    <button class="btn btn-primary" type="submit" href="/post/edit/submit">Submit</button> 
     <a class="btn btn btn-info" role="button" onclick="history.back(-1)">Go back</a>
     </form>
 

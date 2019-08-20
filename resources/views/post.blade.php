@@ -17,11 +17,11 @@
     @endif
     @foreach($posts as $post)
         <div class="jumbotron">
-        <h1 class="display-4">{{ $post.id }} {{ $post.title }}</h1>
-        <p class="lead">{{ $post.content }}</p>
+        <h1 class="display-4">#{{ $post->id }} {{ $post->title }}</h1>
+        <p class="lead">{{ $post->content }}</p>
 
-        <a class="btn btn btn-danger btn-lg" href="/post/edit" role="button">Edit post</a>
-        <a class="btn btn btn-warning btn-lg" href="/post/delete/{{ $id }}" role="button">Delete post</a>
+        <a class="btn btn btn-danger btn-lg" href="/post/edit/{{ $post->id }}" role="button">Edit post</a>
+        <a class="btn btn btn-warning btn-lg" href="/post/delete/{{ $post->id }}" role="button">Delete post</a>
         </div>
     @endforeach 
 
