@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/post', function() { 
+    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT"]); // TODO: CONFIGURE ROUTE!!
+});
+
+Route::post('/post/{id}', function($id) {
+    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT"]); // TODO: CONFIGURE ROUTE!!
+});
+
+Route::put('/post/{id}', function ($id) {
+    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT"]); // TODO: CONFIGURE ROUTE!!
+});
