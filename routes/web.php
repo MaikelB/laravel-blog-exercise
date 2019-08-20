@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', 'PostController@index');
-
 Route::get('/posts/{id}', 'PostController@singlePost');
 
 Route::get('/posts/edit/{id}', 'PostController@editPost');
@@ -24,7 +23,5 @@ Route::post('/posts/edit/{id}', 'PostController@editPost');
 Route::get('/posts/edit', 'PostController@newPost');
 Route::post('/posts/edit', 'PostController@newPost');
 
-
-Route::get('/posts/delete/{id}', function($id) {
-    return view('/postDelete');
-}); 
+Route::get('/posts/delete/{id}', 'PostController@deletePost');
+Route::post('/posts/delete/{id}', 'PostController@deletePost');

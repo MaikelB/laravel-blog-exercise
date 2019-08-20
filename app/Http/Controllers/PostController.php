@@ -77,4 +77,14 @@ class PostController extends Controller
         }
     }
 
+     /**
+     * Create a post
+     *
+     * @return Response
+     */
+    public function deletePost($id)
+    {
+        DB::table('posts')->where('id', $id)->delete();
+        return view('postDelete');
+    }
 }

@@ -11,7 +11,7 @@
     <title>Hello, world!</title>
 </head>
 <body>
-    <h1> Congratulations you just deleted your post!</h1>
+    <h1> Congratulations you just deleted your post! </h1>
     <a class="btn btn btn-info" role="button" href="/posts">Go back to your post</a>
 
     <!-- Optional JavaScript -->
