@@ -11,28 +11,14 @@
     <title>TEST</title>
 </head>
 <body>
-    @if(count($posts) == 0)
-        <h1> No posts to show. Would you like to make one?</h1>
-        <a class="btn btn btn-danger btn-lg" href="/posts/edit" role="button">Create a post</a>
-    @endif
-    @if(count($posts) == 1)
+    @if(!is_array($posts))
         <div class="jumbotron">
-        <h1 class="display-4">#{{ $post->id }} {{ $post->title }}</h1>
-        <p class="lead">{{ $post->content }}</p>
+        <h1 class="display-4">#{{ $posts->id }} {{ $posts->title }}</h1>
+        <p class="lead">{{ $posts->content }}</p>
 
-        <a class="btn btn btn-danger btn-lg" href="/posts/edit/{{ $post->id }}" role="button">Edit post</a>
-        <a class="btn btn btn-warning btn-lg" href="/posts/delete/{{ $post->id }}" role="button">Delete post</a>
-        </div>
-    @else
-        @foreach($posts as $post)
-            <div class="jumbotron">
-            <h1 class="display-4">#{{ $post->id }} {{ $post->title }}</h1>
-            <p class="lead">{{ $post->content }}</p>
-
-            <a class="btn btn btn-danger btn-lg" href="/posts/edit/{{ $post->id }}" role="button">Edit post</a>
-            <a class="btn btn btn-warning btn-lg" href="/posts/delete/{{ $post->id }}" role="button">Delete post</a>
-            </div>
-        @endforeach 
+        <a class="btn btn btn-danger btn-lg" href="/posts/edit/{{ $posts->id }}" role="button">Edit post</a>
+        <a class="btn btn btn-warning btn-lg" href="/posts/delete/{{ $posts->id }}" role="button">Delete post</a>
+        </div>    
     @endif
 
     <!-- Optional JavaScript -->

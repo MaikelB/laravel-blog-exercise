@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 class PostController extends Controller
 {
     /**
-     * Show a list of all of the application's users.
+     * Show a list of all of the posts.
      *
      * @return Response
      */
@@ -19,6 +19,18 @@ class PostController extends Controller
         $posts = DB::table('posts')->get();
 
         return view('post', ['posts' => $posts]); // TODO: CONFIGURE ROUTE!!
+    }
+
+     /**
+     * Shows a single post
+     *
+     * @return Response
+     */
+    public function singlePost($id)
+    {
+        $post = DB::table('posts')->where('id', $id)->first();
+
+        return view('post', ['posts' => $post]);    
     }
 
      /**
