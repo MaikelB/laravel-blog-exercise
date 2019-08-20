@@ -16,13 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('/post', function() { 
-    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT"]); // TODO: CONFIGURE ROUTE!!
+    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
 
 Route::post('/post/{id}', function($id) {
-    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT"]); // TODO: CONFIGURE ROUTE!!
+    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
 
 Route::put('/post/{id}', function ($id) {
-    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT"]); // TODO: CONFIGURE ROUTE!!
+    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
+});
+
+Route::get('/post/edit', function () {
+    return view('postEdit', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
