@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $posts = DB::table('posts')->get();
 
-        return view('post', ['posts' => $posts]); // TODO: CONFIGURE ROUTE!!
+        return view('post', ['posts' => $posts]); 
     }
 
      /**
@@ -40,18 +40,20 @@ class PostController extends Controller
      */
     public function editPost(Request $request, $id)
     {
-     if($request)
+     if($request->isMethod('post') && $id)
      {
-         if($id)
-         {
-            DB::table('posts')
-            ->where('id', $id)
-            ->update(['title' => $request->input('postTitle'), 
-                      'content' => $request->input('postContent')]);
-            return redirect('/post');
-         }
+        DB::table('posts')
+        ->where('id', $id)
+        ->update(['title' => $request->input('postTitle'), 
+                    'content' => $request->input('postContent')]);
+        return redirect('/posts');
      } else {
-        return "Error";
+        $post = DB::table('posts')->where('id', $id)->first();
+        if(!$post)
+        {
+            return "An error has occured. We were unable to find the post with id: " + $id;
+        }
+        return view('postEdit', ['title' => $post->title, 'content' => $post->content]);
      }
     } 
 
@@ -71,7 +73,7 @@ class PostController extends Controller
             ]);
             return redirect('/post');
         } else {
-            return view('postEdit', ['title' => 'Title here please', 'content' => 'content here']); // TODO: CONFIGURE ROUTE!!
+            return view('postEdit', ['title' => 'Title here please', 'content' => 'content here']); 
         }
     }
 
