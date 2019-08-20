@@ -13,15 +13,15 @@
 <body>
     @if(count($posts) == 0)
     <h1> No posts to show. Would you like to make one?</h1>
-    <a class="btn btn btn-danger btn-lg" href="/post/edit" role="button">Create a post</a>
+    <a class="btn btn btn-danger btn-lg" href="/posts/edit" role="button">Create a post</a>
     @endif
     @foreach($posts as $post)
         <div class="jumbotron">
         <h1 class="display-4">#{{ $post->id }} {{ $post->title }}</h1>
         <p class="lead">{{ $post->content }}</p>
 
-        <a class="btn btn btn-danger btn-lg" href="/post/edit/{{ $post->id }}" role="button">Edit post</a>
-        <a class="btn btn btn-warning btn-lg" href="/post/delete/{{ $post->id }}" role="button">Delete post</a>
+        <a class="btn btn btn-danger btn-lg" href="/posts/edit/{{ $post->id }}" role="button">Edit post</a>
+        <a class="btn btn btn-warning btn-lg" href="/posts/delete/{{ $post->id }}" role="button">Delete post</a>
         </div>
     @endforeach 
 

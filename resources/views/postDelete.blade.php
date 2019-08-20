@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1> Congratulations you just deleted your post!</h1>
-    <a class="btn btn btn-info" role="button" href="/post">Go back to your post</a>
+    <a class="btn btn btn-info" role="button" href="/posts">Go back to your post</a>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

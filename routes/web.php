@@ -15,25 +15,25 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/post', 'PostController@index');
-Route::post('/post', 'PostController@post');
+Route::get('/posts', 'PostController@index');
+Route::get('/posts', 'PostController@index');
 
-Route::post('/post/{id}', function($id) {
+Route::post('/posts/{id}', function($id) {
     return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
 
-Route::put('/post/{id}', function ($id) {
+Route::put('/posts/{id}', function ($id) {
     return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
 
-Route::get('/post/edit/{id}', function () {
+Route::get('/posts/edit/{id}', function () {
     return view('postEdit', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
 });
-Route::post('/post/edit/{id}', 'PostController@editPost');
-Route::post('/post/edit/submit', 'PostController@newPost');
-Route::get('/post/edit', 'PostController@newPost');
+Route::post('/posts/edit/{id}', 'PostController@editPost');
+Route::get('/posts/edit', 'PostController@newPost');
+Route::post('/posts/edit', 'PostController@newPost');
 
 
-Route::get('/post/delete/{id}', function($id) {
+Route::get('/posts/delete/{id}', function($id) {
     return view('/postDelete');
 }); 

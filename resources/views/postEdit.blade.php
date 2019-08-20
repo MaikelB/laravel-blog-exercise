@@ -21,8 +21,8 @@
         <label for="formGroupExampleInput2">Content</label>
         <input type="text" class="form-control" id="postContent" name="postContent" placeholder="{{ $content }}">
     </div>
-    <button class="btn btn-primary" type="submit" href="/post/edit/submit">Submit</button> 
-    <a class="btn btn btn-info" role="button" onclick="history.back(-1)">Go back</a>
+    <button class="btn btn-primary" type="submit" href="/posts/edit">Submit</button> 
+    <a class="btn btn btn-info" role="buttons" onclick="history.back(-1)">Go back</a>
     </form>
 
     <!-- Optional JavaScript -->
