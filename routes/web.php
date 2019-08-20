@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/post', function() { 
-    return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!
-});
+Route::get('/post', 'PostController@index');
 
 Route::post('/post/{id}', function($id) {
     return view('post', ['title' => "THIS FEATURE ISN'T IMPLEMENTED YET", 'content' => "DEAL WITH IT", 'id' => 42]); // TODO: CONFIGURE ROUTE!!

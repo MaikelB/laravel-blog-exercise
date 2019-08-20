@@ -8,16 +8,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>TEST</title>
 </head>
 <body>
-    <div class="jumbotron">
-    <h1 class="display-4">{{ $title }}</h1>
-    <p class="lead">{{ $content }}</p>
+    @if(count($posts) == 0)
+    <h1> No posts to show. Would you like to make one?</h1>
+    <a class="btn btn btn-danger btn-lg" href="/post/edit" role="button">Create a post</a>
+    @endif
+    @foreach($posts as $post)
+        <div class="jumbotron">
+        <h1 class="display-4">{{ $post.id }} {{ $post.title }}</h1>
+        <p class="lead">{{ $post.content }}</p>
 
-    <a class="btn btn btn-danger btn-lg" href="/post/edit" role="button">Edit post</a>
-    <a class="btn btn btn-warning btn-lg" href="/post/delete/{{ $id }}" role="button">Delete post</a>
-    </div>
+        <a class="btn btn btn-danger btn-lg" href="/post/edit" role="button">Edit post</a>
+        <a class="btn btn btn-warning btn-lg" href="/post/delete/{{ $id }}" role="button">Delete post</a>
+        </div>
+    @endforeach 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
