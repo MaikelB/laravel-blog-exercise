@@ -51,10 +51,11 @@ class PostController extends Controller
         $post = DB::table('posts')->where('id', $id)->first();
         if(!$post)
         {
-            return "An error has occured. We were unable to find the post with id: " + $id;
+            return response()->view('error', ['error' => 'There is no post available'], 404);
         }
         return view('postEdit', ['title' => $post->title, 'content' => $post->content]);
      }
+     return response()->view('error', ['error' => 'Something went wrong'], 400);
     } 
 
     /**
@@ -74,6 +75,7 @@ class PostController extends Controller
         } else {
             return view('postEdit', ['title' => 'Title here please', 'content' => 'content here']); 
         }
+        return response()->view('error', ['error' => 'Something went wrong'], 400);
     }
 
      /**
